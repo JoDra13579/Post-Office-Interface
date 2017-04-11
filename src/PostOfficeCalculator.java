@@ -16,6 +16,6 @@ public class PostOfficeCalculator
      */
     public static void main( String[] args )
     {
-        // SOME CHANGES!
+        // More changes
     }
 }
