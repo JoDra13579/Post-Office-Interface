@@ -10,12 +10,17 @@
  */
 public class PostOfficeCalculator
 {
+    
+    public PostOfficeCalculator()
+    {
+        
+    }
 
     /**
      * @param args the command line arguments
      */
     public static void main( String[] args )
     {
-        // More changessssssssss
+        new PostOfficeCalculator();
     }
 }
