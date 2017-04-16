@@ -5,6 +5,7 @@
  */
  
 import java.util.Scanner;
+import java.io.*;
 
 /**
  *
@@ -13,18 +14,35 @@ import java.util.Scanner;
 public class POList
 {
     
-	PostOffice[] poList;
-	
-	public POList( File listFile )
-	{
-		Scanner listIn = new Scanner( listFile );
-		
-		int lines = 0;
-		while ( listIn.hasNext() )
-		{
-			lines++;
-			listIn.nextLine();
-		}
-		listIn.reset();
-	}
+    PostOffice[] poList;
+
+    /**
+     * Parameterized constructor 
+     * @param listFile
+     * @throws IOException If the file cannot be found of there is an error
+     *                     reading from the file
+     */
+    public POList( File listFile ) throws IOException
+    {
+            Scanner listIn = new Scanner( listFile );
+
+            int lines = 0;
+            while ( listIn.hasNext() )
+            {
+                lines++;
+                listIn.nextLine();
+            }
+            listIn.reset();
+            /////////////////////////////////////////////////
+            // UNFINISHED
+            /////////////////////////////////////////////////
+    }
+    
+    public POList( POList l )
+    {
+        this.poList = new PostOffice[ l.poList.length ];
+        
+        for ( int i = 0; i < l.poList.length; i++ )
+            this.poList[ i ] = new PostOffice( l.poList[ i ] );
+    }
 }
