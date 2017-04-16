@@ -10,10 +10,10 @@
  */
 public class PostOffice
 {
-    double lat,
-           lon;
-    int    zip;
-    String city;
+    private double lat,
+                   lon;
+    private int    zip;
+    private String city;
     
     /**
      * No-arg constructor
@@ -27,7 +27,7 @@ public class PostOffice
     }
     
     /**
-     * Parametrized constructor accepting latitude, longitude, zip code, and
+     * Parameterized constructor accepting latitude, longitude, zip code, and
      * the city of the post office object
      * @param zip  ZIP code
      * @param lat  Latitude in decimal degrees
@@ -43,7 +43,7 @@ public class PostOffice
     }
     
     /**
-     * Copy constructor
+     * Copy constructor for PostOffice objects
      * @param p The PostOffice object to be copied
      */
     public PostOffice( PostOffice p )
@@ -53,4 +53,78 @@ public class PostOffice
         this.zip  = p.zip;
         this.city = p.city;
     }
+
+    /**
+     * Accessor method for the lat field
+     * @return The latitude
+     */
+    public double getLat()
+    {
+        return lat;
+    }
+
+    /**
+     * Mutator method for the lat field
+     * @param lat The latitude to set
+     */
+    public void setLat( double lat )
+    {
+        this.lat = lat;
+    }
+
+    /**
+     * Accessor method for the lon field
+     * @return The longitude
+     */
+    public double getLon()
+    {
+        return lon;
+    }
+
+    /**
+     * Mutator method for the lon field
+     * @param lon The longitude to set
+     */
+    public void setLon( double lon )
+    {
+        this.lon = lon;
+    }
+
+    /**
+     * Accessor method for the zip field
+     * @return The ZIP code
+     */
+    public int getZip()
+    {
+        return zip;
+    }
+
+    /**
+     * Mutator method for the zip field
+     * @param zip The ZIP code to set
+     */
+    public void setZip(int zip)
+    {
+        this.zip = zip;
+    }
+
+    /**
+     * Accessor method for the city field
+     * @return The city
+     */
+    public String getCity()
+    {
+        return city;
+    }
+
+    /**
+     * Mutator method for the city field
+     * @param city The city to set
+     */
+    public void setCity(String city)
+    {
+        this.city = city;
+    }
+    
+    
 }
