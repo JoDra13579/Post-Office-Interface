@@ -24,25 +24,32 @@ public class POList
      */
     public POList( File listFile ) throws IOException
     {
-            Scanner listIn = new Scanner( listFile );
+        Scanner listIn = new Scanner( listFile );
 
-            int lines = 0;
-            while ( listIn.hasNext() )
-            {
-                lines++;
-                listIn.nextLine();
-            }
-            listIn.reset();
-            /////////////////////////////////////////////////
-            // UNFINISHED
-            /////////////////////////////////////////////////
+        int lines = 0;
+        while ( listIn.hasNext() )
+        {
+            lines++;
+            listIn.nextLine();
+        }
+        listIn.reset();
+        
+        poList = new PostOffice[ lines ];
+        
+        while ( listIn.hasNext() )
+        {
+            int i = 0;
+            poList[ i ] = new PostOffice( listIn.nextInt(),
+                    listIn.nextDouble(), listIn.nextDouble(),
+                    listIn.nextLine().replace( '_', ' ' ) );
+        }
     }
     
-    public POList( POList l )
+    public POList( POList list )
     {
-        this.poList = new PostOffice[ l.poList.length ];
+        this.poList = new PostOffice[ list.poList.length ];
         
-        for ( int i = 0; i < l.poList.length; i++ )
-            this.poList[ i ] = new PostOffice( l.poList[ i ] );
+        for ( int i = 0; i < list.poList.length; i++ )
+            this.poList[ i ] = new PostOffice( list.poList[ i ] );
     }
 }
