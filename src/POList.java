@@ -36,15 +36,17 @@ public class POList
         
         poList = new PostOffice[ lines ];
         
+        int i = 0;
         while ( listIn.hasNext() )
-        {
-            int i = 0;
-            poList[ i ] = new PostOffice( listIn.nextInt(),
+            poList[ i++ ] = new PostOffice( listIn.nextInt(),
                     listIn.nextDouble(), listIn.nextDouble(),
                     listIn.nextLine().replace( '_', ' ' ) );
-        }
     }
     
+    /**
+     * Copy constructor for POList objects
+     * @param list The POList object to copy
+     */
     public POList( POList list )
     {
         this.poList = new PostOffice[ list.poList.length ];
