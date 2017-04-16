@@ -1,12 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Doctor
+/** -Jordan Drake-CST183-Tim Klingler-
+ * This class contains information about a Post Office including the 
+ * location (using latitude and longitude), the corresponding city,
+ * and its ZIP code. It also contains an instance method to calculate
+ * the distance to another PostOffice object.
+ * @author Jordan Drake
  */
 public class PostOffice
 {
