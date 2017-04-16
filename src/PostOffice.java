@@ -29,12 +29,12 @@ public class PostOffice
     /**
      * Parametrized constructor accepting latitude, longitude, zip code, and
      * the city of the post office object
+     * @param zip  ZIP code
      * @param lat  Latitude in decimal degrees
      * @param lon  Longitude in decimal degrees
-     * @param zip  ZIP code
      * @param city City name
      */
-    public PostOffice( double lat, double lon, int zip, String city )
+    public PostOffice( int zip, double lat, double lon, String city )
     {
         this.lat  = lat;
         this.lon  = lon;
