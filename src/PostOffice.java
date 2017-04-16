@@ -41,4 +41,16 @@ public class PostOffice
         this.zip  = zip;
         this.city = city;
     }
+    
+    /**
+     * Copy constructor
+     * @param p The PostOffice object to be copied
+     */
+    public PostOffice( PostOffice p )
+    {
+        this.lat  = p.lat;
+        this.lon  = p.lon;
+        this.zip  = p.zip;
+        this.city = p.city;
+    }
 }
