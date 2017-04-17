@@ -5,6 +5,7 @@
  * the distance to another PostOffice object.
  * @author Jordan Drake
  */
+
 public class PostOffice
 {
     private double lat,

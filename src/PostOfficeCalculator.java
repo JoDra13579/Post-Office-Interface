@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * This class extends the JFrame class and controls a window for interfacing with
+ * an object of the POList class
+ * @author Jordan Drake
  */
 
-/**
- *
- * @author Doctor
- */
-public class PostOfficeCalculator
+public class PostOfficeCalculator extends JFrame
 {
     
     public PostOfficeCalculator()
