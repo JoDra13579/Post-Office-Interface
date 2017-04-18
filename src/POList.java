@@ -1,24 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
- 
 import java.util.Scanner;
 import java.io.*;
 
-/**
- *
- * @author Doctor
+/** -Jordan Drake-CST183-Tim Klingler-
+ * This class contains an array of PostOffice objects and a single separate
+ * PostOffice object that is considered the center for the other PostOffice
+ * objects. It also contains a method to calculate and return an array (parallel
+ * to the PostOffice array) of discances to the "center."
+ * @author Jordan Drake
  */
+
 public class POList
 {
-    
-    PostOffice[] poList;
-
+    private PostOffice[] poList;
+	private PostOffice   center;
+	
     /**
      * Parameterized constructor 
-     * @param listFile
+     * @param listFile     The file object to read the post office information
+	 *                     from
      * @throws IOException If the file cannot be found of there is an error
      *                     reading from the file
      */
