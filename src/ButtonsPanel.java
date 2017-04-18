@@ -12,10 +12,12 @@ public class ButtonsPanel extends JPanel
 {
     JButton[] nums = new JButton[ 12 ];
     ZipField searchBox;
+    PostOfficeCalculator parent;
     
-    public ButtonsPanel( ZipField searchBox )
+    public ButtonsPanel( ZipField searchBox, PostOfficeCalculator parent )
     {
         this.searchBox = searchBox;
+        this.parent    = parent;
         
         // Create grid layout for button panel
         this.setLayout( new GridLayout( 4, 3, 5, 5 ) );
@@ -61,7 +63,7 @@ public class ButtonsPanel extends JPanel
             
             // Check for SEARCH button
             if ( e.getSource() == nums[ i++ ] )
-                searchBox.submit();
+                parent.search( Integer.parseInt( searchBox.getText() ) );
         }
     }
 }
