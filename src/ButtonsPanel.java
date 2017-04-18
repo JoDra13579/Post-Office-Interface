@@ -34,7 +34,7 @@ public class ButtonsPanel extends JPanel
         this.add( nums[ i++ ] );
         nums[ i ] = new JButton( 0 + "" );
         this.add( nums[ i++ ] );
-        nums[ i++ ] = new JButton( "SEARCH" );
+        nums[ i ] = new JButton( "SEARCH" );
         this.add( nums[ i++ ] );
         
         for ( JButton b : nums )
