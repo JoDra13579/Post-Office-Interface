@@ -43,8 +43,8 @@ public class PostOffice
     }
     
     /**
-     * Copy constructor for PostOffice objects
-     * @param p The PostOffice object to be copied
+     * Copy constructor for <code>PostOffice</code> objects
+     * @param p The <code>PostOffice</code> object to be copied
      */
     public PostOffice( PostOffice p )
     {
@@ -55,7 +55,7 @@ public class PostOffice
     }
 
     /**
-     * Accessor method for the lat field
+     * Accessor method for the <code>lat</code> field
      * @return The latitude
      */
     public double getLat()
@@ -64,7 +64,7 @@ public class PostOffice
     }
 
     /**
-     * Mutator method for the lat field
+     * Mutator method for the <code>lat</code> field
      * @param lat The latitude to set
      */
     public void setLat( double lat )
@@ -73,7 +73,7 @@ public class PostOffice
     }
 
     /**
-     * Accessor method for the lon field
+     * Accessor method for the <code>lon</code> field
      * @return The longitude
      */
     public double getLon()
@@ -126,5 +126,22 @@ public class PostOffice
         this.city = city;
     }
     
-    
+    /**
+     * Method to calculate the surface distance from one <code>PostOffice</code>
+     * to another
+     * @param p The <code>PostOffice</code> object to calculate the distance for
+     * @return The geodesic distance from <code>p</code> to <code>this</code>
+     */
+    public double distanceTo( PostOffice p )
+    {
+        double dSigma; // Angular distance between PostOffices
+        // Formula: dSigma =
+        // arccos( sin(lat1) sin(lat2) + cos(lat1) cos(lat2) cos(lon1-lon2) )
+        dSigma = Math.acos( Math.sin( Math.toRadians( this.lat ) ) *
+                Math.sin( Math.toRadians( p.lat ) ) +
+                Math.cos( Math.toRadians( this.lat ) ) *
+                Math.cos( Math.toRadians( p.lat ) ) *
+                Math.cos( Math.toRadians( this.lon - p.lon ) ) );
+        return 3963.190592 * dSigma; // Arclength = r theta
+    }
 }
