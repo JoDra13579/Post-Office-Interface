@@ -80,7 +80,7 @@ public class PostOffice
     }
 
     /**
-     * Mutator method for the lon field
+     * Mutator method for the <code>lon</code> field
      * @param lon The longitude to set
      */
     public void setLon( double lon )
@@ -89,7 +89,7 @@ public class PostOffice
     }
 
     /**
-     * Accessor method for the zip field
+     * Accessor method for the <code>zip</code> field
      * @return The ZIP code
      */
     public int getZip()
@@ -98,7 +98,7 @@ public class PostOffice
     }
 
     /**
-     * Mutator method for the zip field
+     * Mutator method for the <code>zip</code> field
      * @param zip The ZIP code to set
      */
     public void setZip(int zip)
@@ -107,7 +107,7 @@ public class PostOffice
     }
 
     /**
-     * Accessor method for the city field
+     * Accessor method for the <code>city</code> field
      * @return The city
      */
     public String getCity()
@@ -116,7 +116,7 @@ public class PostOffice
     }
 
     /**
-     * Mutator method for the city field
+     * Mutator method for the <code>city</code> field
      * @param city The city to set
      */
     public void setCity(String city)
