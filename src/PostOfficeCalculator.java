@@ -65,13 +65,15 @@ public class PostOfficeCalculator extends JFrame
         // Set program to close on window exit
         this.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         
-        
+        // Try-catch to catch and IOExceptions from reading list file during
+		// POList construction
         try
         {
             list = new POList( LISTFILE, CENTER );
         }
         catch ( IOException e )
         {
+			// Show error message and exit
             JOptionPane.showMessageDialog( this, "Error: " + e.getMessage(), 
                     "File Error", JOptionPane.ERROR_MESSAGE);
             System.exit( 0 );
@@ -81,6 +83,7 @@ public class PostOfficeCalculator extends JFrame
     
     public void search( int zip )
     {
+		// Search for the desired zip code in the post office list
         result = list.searchZip( zip );
         String outStr = "";
         outStr += result;
@@ -93,6 +96,7 @@ public class PostOfficeCalculator extends JFrame
     {
         public void actionPerformed( ActionEvent e )
         {
+			// Exit the program when clicked
             System.exit( 0 );
         }
     }
@@ -102,6 +106,6 @@ public class PostOfficeCalculator extends JFrame
      */
     public static void main( String[] args )
     {
-        new PostOfficeCalculator();
+        new PostOfficeCalculator(); // Instantiate the application window
     }
 }
