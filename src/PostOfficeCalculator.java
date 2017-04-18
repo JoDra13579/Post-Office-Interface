@@ -8,12 +8,14 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.io.*;
 
 public class PostOfficeCalculator extends JFrame
 {
     // ***CONSTANTS***
-    private final int WIDTH = 200,
-                     HEIGHT = 250;
+    private final int       WIDTH = 200,
+                           HEIGHT = 250;
+    private final String FILENAME = "zipMIcity.txt";
     
     // **GUI Components**
     private ButtonsPanel keypad;
@@ -33,7 +35,15 @@ public class PostOfficeCalculator extends JFrame
         this.setLayout( new BorderLayout( 0, 10 ) );
         
         // Create textfield and add it to layout
-        zipBox = new ZipField();
+        try
+        {
+            zipBox = new ZipField( new File( FILENAME ) );
+        }
+        catch ( IOException e )
+        {
+            JOptionPane.showMessageDialog( this, "Error:" + e.getMessage(),
+                    "File error", JOptionPane.ERROR_MESSAGE );
+        }
         zipBox.setEditable( false );
         this.add( zipBox, BorderLayout.NORTH );
         
