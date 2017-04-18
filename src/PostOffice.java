@@ -143,4 +143,19 @@ public class PostOffice
                 Math.cos( Math.toRadians( this.lon - p.lon ) ) );
         return 3963.190592 * dSigma; // Arclength = r theta
     }
+    
+    /**
+     * 
+     * @return 
+     */
+    public String toString()
+    {
+        String outStr = "";
+        outStr += String.format( "City:      %-10s\n", city );
+        outStr += String.format( "ZIP:       %10d\n", zip);
+        outStr += String.format( "Latitude:  %10.5f\n", lat);
+        outStr += String.format( "Longitude: %10.5f\n", lon);
+        
+        return outStr;
+    }
 }
