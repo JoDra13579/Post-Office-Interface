@@ -11,9 +11,11 @@ import java.awt.event.*;
 
 public class PostOfficeCalculator extends JFrame
 {
+    // ***CONSTANTS***
     private final int WIDTH = 200,
                      HEIGHT = 250;
     
+    // **GUI Components**
     private ButtonsPanel keypad;
     private ZipField zipBox;
     private JPanel exitPanel;
@@ -21,13 +23,16 @@ public class PostOfficeCalculator extends JFrame
     
     private PostOfficeCalculator()
     {
+        // Set title
         this.setTitle( "Post Office Search" );
         
+        // Set window size
         this.setSize( WIDTH, HEIGHT );
         
-        JOptionPane.showMessageDialog(this, "Search for a post office by ZIP "
-                + "code using your keypad or the on-screen keypad");
+        // Set window layout
         this.setLayout( new BorderLayout( 0, 10 ) );
+        
+        // Create textfield and add it to layout
         zipBox = new ZipField();
         zipBox.setEditable( false );
         this.add( zipBox, BorderLayout.NORTH );
@@ -43,8 +48,14 @@ public class PostOfficeCalculator extends JFrame
         exitPanel.add( exit );
         this.add( exitPanel, BorderLayout.SOUTH );
         
+        // Make window Visible
         this.setVisible( true );
         
+        // Show informational dialog
+        JOptionPane.showMessageDialog(this, "Search for a post office by ZIP "
+                + "code using your keypad or the on-screen keypad");
+        
+        // Set program to close on window exit
         this.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
     }
     
