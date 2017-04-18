@@ -1,7 +1,5 @@
-import java.util.Scanner;
-import java.io.*;
-
-/**-CST183-Tim Klingler-
+//-CST183-Tim Klingler-
+/**
  * This class contains an array of <code>PostOffice</code> objects and a single
  * separate <code>PostOffice</code> object that is considered the center for the
  * other <code>PostOffice</code> objects. It also contains a method to calculate
@@ -9,6 +7,9 @@ import java.io.*;
  * distances to the <code>center</code>.
  * @author Jordan Drake
  */
+
+import java.util.Scanner;
+import java.io.*;
 
 public class POList
 {
