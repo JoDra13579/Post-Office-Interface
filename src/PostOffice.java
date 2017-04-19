@@ -19,10 +19,10 @@ public class PostOffice
      */
     public PostOffice()
     {
-        lat  = 43.55660;
-        lon  = -83.99430;
-        zip  = 48640;
-        city = "University Center";
+        this.setLat( 0.0 );
+        this.setLon( 0.0 );
+        this.setZip( 40000 );
+        this.setCity( "Empty" );
     }
     
     /**
@@ -32,13 +32,16 @@ public class PostOffice
      * @param lat  Latitude in decimal degrees
      * @param lon  Longitude in decimal degrees
      * @param city City name
+     * @throws IllegalArgumentException If any arguments are outisde acceptable
+     *                                  ranges
      */
-    public PostOffice( int zip, double lat, double lon, String city )
+    public PostOffice( int zip, double lat, double lon, String city ) throws
+            IllegalArgumentException
     {
-        this.lat  = lat;
-        this.lon  = lon;
-        this.zip  = zip;
-        this.city = city;
+        this.setLat( lat );
+        this.setLon( lon );
+        this.setZip( zip );
+        this.setCity( city );
     }
     
     /**
@@ -47,10 +50,10 @@ public class PostOffice
      */
     public PostOffice( PostOffice p )
     {
-        this.lat  = p.lat;
-        this.lon  = p.lon;
-        this.zip  = p.zip;
-        this.city = p.city;
+        this.setLat( p.lat );
+        this.setLon( p.lon );
+        this.setZip( p.zip );
+        this.setCity( p.city );
     }
 
     /**
@@ -65,10 +68,19 @@ public class PostOffice
     /**
      * Mutator method for the <code>lat</code> field
      * @param lat The latitude to set
+     * @throws IllegalArgumentException If <code>lat</code> is not between -180
+     *                                  and 180
      */
-    public void setLat( double lat )
+    public void setLat( double lat ) throws IllegalArgumentException
     {
-        this.lat = lat;
+        if ( lat >= -90.0 && lat <= 90.0 )
+            this.lat = lat;
+        else
+        {
+            this.lat = 0.0;
+            throw new IllegalArgumentException( "Latitude " + lat + " is not a"
+                    + " decimal value between -180 and 180" );
+        }
     }
 
     /**
@@ -83,10 +95,19 @@ public class PostOffice
     /**
      * Mutator method for the <code>lon</code> field
      * @param lon The longitude to set
+     * @throws IllegalArgumentException If <code>lon</code> is not between -90
+     *                                  and 90
      */
-    public void setLon( double lon )
+    public void setLon( double lon ) throws IllegalArgumentException
     {
-        this.lon = lon;
+        if ( lon >= -180.0 && lon <= 180.0 )
+            this.lon = lon;
+        else
+        {
+            this.lon = 0.0;
+            throw new IllegalArgumentException( "Longitude " + lon  + " is not"
+                    + " a decimal value between -90 and 90" );
+        }
     }
 
     /**
@@ -101,10 +122,19 @@ public class PostOffice
     /**
      * Mutator method for the <code>zip</code> field
      * @param zip The ZIP code to set
+     * @throws IllegalArgumentException If <code>zip</code> is not between 40000
+     *                                  and 49999
      */
-    public void setZip(int zip)
+    public void setZip(int zip) throws IllegalArgumentException
     {
-        this.zip = zip;
+        if ( zip >= 40000 && zip <= 49999 )
+            this.zip = zip;
+        else
+        {
+            this.zip = zip;
+            throw new IllegalArgumentException( "ZIP code " + zip + " is not a "
+                    + "valid Michigan ZIP code" );
+        }
     }
 
     /**
@@ -122,7 +152,13 @@ public class PostOffice
      */
     public void setCity(String city)
     {
-        this.city = city;
+        if ( !city.trim().equals( "" ) )
+            this.city = city.trim();
+        else
+        {
+            this.city = "Empty";
+            throw new IllegalArgumentException( "City name cannot be empty");
+        }
     }
     
     /**
@@ -155,7 +191,6 @@ public class PostOffice
         outStr += String.format( "ZIP:       %10d\n", zip);
         outStr += String.format( "Latitude:  %10.5f\n", lat);
         outStr += String.format( "Longitude: %10.5f\n", lon);
-        
         return outStr;
     }
 }
