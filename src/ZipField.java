@@ -1,5 +1,7 @@
+//-CST183-Tim Klingler-
 /**
- *
+ * This class extends the JTextField class and adds methods to type integers in
+ * the field, and clear the field
  * @author Jordan Drake
  */
 
