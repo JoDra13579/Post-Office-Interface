@@ -1,6 +1,7 @@
 //-CST183-Tim Klingler-
 /**
- *
+ * This class contains a panel and an array of buttons for controlling the
+ * <code>PostOfficeCalculator</code> application.
  * @author Jordan Drake
  */
 
@@ -11,11 +12,12 @@ import javax.swing.*;
 public class ButtonsPanel extends JPanel
 {
     JButton[] nums = new JButton[ 12 ];
-    ZipField searchBox;
-    PostOfficeCalculator parent;
+    ZipField searchBox;                // The ZipField to read searches from
+    PostOfficeCalculator parent;       // The parent application
     
     public ButtonsPanel( ZipField searchBox, PostOfficeCalculator parent )
     {
+        // Assign searchBox and parent fields for the class
         this.searchBox = searchBox;
         this.parent    = parent;
         
@@ -36,9 +38,10 @@ public class ButtonsPanel extends JPanel
         this.add( nums[ i++ ] );
         nums[ i ] = new JButton( 0 + "" );
         this.add( nums[ i++ ] );
-        nums[ i ] = new JButton( "SEARCH" );
+        nums[ i ] = new JButton( "FIND" );
         this.add( nums[ i++ ] );
         
+        // Associate ButtonListener with all buttons in array
         for ( JButton b : nums )
             b.addActionListener( new ButtonListener() );
     }

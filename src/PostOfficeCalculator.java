@@ -13,7 +13,7 @@ import java.io.*;
 public class PostOfficeCalculator extends JFrame
 {
     // ***CONSTANTS***
-    private static final int         WIDTH = 200,
+    private static final int         WIDTH = 220,
                                     HEIGHT = 250;
     private static final File     LISTFILE = new File( "zipMIcity.txt" );
     private static final PostOffice CENTER = new PostOffice( 48640, 43.55660, 
@@ -25,6 +25,7 @@ public class PostOfficeCalculator extends JFrame
     private JPanel exitPanel;
     private JButton exit;
     
+    // Instance variables
     private POList list;
     private PostOffice result;
     
@@ -65,38 +66,67 @@ public class PostOfficeCalculator extends JFrame
         // Set program to close on window exit
         this.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         
+<<<<<<< HEAD
         // Try-catch to catch and IOExceptions from reading list file during
 		// POList construction
+=======
+        // Try-catch block to catch any exceptions thrown in the POList
+        // constructor
+>>>>>>> branch 'master' of https://github.com/JoDra13579/Post-Office-Interface.git
         try
         {
             list = new POList( LISTFILE, CENTER );
         }
-        catch ( IOException e )
+        catch ( IOException | IllegalArgumentException e )
         {
 			// Show error message and exit
             JOptionPane.showMessageDialog( this, "Error: " + e.getMessage(), 
-                    "File Error", JOptionPane.ERROR_MESSAGE);
+                    "Error", JOptionPane.ERROR_MESSAGE);
             System.exit( 0 );
         }
-        
     }
     
+    /**
+     * Method to search for <code>zip</code> in <code>list</code>
+     * @param zip The zip code to search for in the array
+     */
     public void search( int zip )
     {
+<<<<<<< HEAD
 		// Search for the desired zip code in the post office list
+=======
+        // Run search method on the list object and assign it to result
+>>>>>>> branch 'master' of https://github.com/JoDra13579/Post-Office-Interface.git
         result = list.searchZip( zip );
-        String outStr = "";
-        outStr += result;
-        outStr += String.format( "%.2f miles from %d in %s", 
-                result.distanceTo(CENTER), result.getZip(), result.getCity() );
-        JOptionPane.showMessageDialog( this, outStr);
+        if ( result != null )
+        {
+            String outStr = "";
+            outStr += result;
+            outStr += String.format( "%.2f miles from %d in %s", 
+                    result.distanceTo(CENTER), result.getZip(),
+                    result.getCity() );
+            JOptionPane.showMessageDialog( this, outStr);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog( this, "ZIP code " + zip + " not "
+                    + "found in list of post offices.", "ZIP Not Found",
+                    JOptionPane.PLAIN_MESSAGE );
+        }
     }
     
+    /**
+     * Inner class for event listener for the exit button
+     */
     private class ExitListener implements ActionListener
     {
         public void actionPerformed( ActionEvent e )
         {
+<<<<<<< HEAD
 			// Exit the program when clicked
+=======
+            // Exit the application
+>>>>>>> branch 'master' of https://github.com/JoDra13579/Post-Office-Interface.git
             System.exit( 0 );
         }
     }
@@ -106,6 +136,10 @@ public class PostOfficeCalculator extends JFrame
      */
     public static void main( String[] args )
     {
+<<<<<<< HEAD
         new PostOfficeCalculator(); // Instantiate the application window
+=======
+        new PostOfficeCalculator(); // Instantiating the application window
+>>>>>>> branch 'master' of https://github.com/JoDra13579/Post-Office-Interface.git
     }
 }
